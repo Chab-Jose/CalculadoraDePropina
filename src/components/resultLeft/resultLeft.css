@@ -1,0 +1,52 @@
+#root {
+    --cyan: hsl(172, 67%, 45%);
+    --veryDarkCyan: hsl(183, 100%, 15%);
+    --darkGrayishCyan: hsl(186, 14%, 43%);
+    --grayishCyan: hsl(184, 14%, 56%);
+    --lightGrayishCyan: hsl(185, 41%, 84%);
+    --veryLightGrayishCyan: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+  
+  }
+  
+
+.left-result{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-result{
+    width: 100px;
+    height: 45px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: left;
+    margin: 5px;
+    padding: 5px;
+    line-height: 2px;
+
+}
+
+.title-result{
+    color: var(--White);
+    font-weight: bolder;
+    width: 100%;
+}
+.span-result{
+    color: var(--White);
+    width: 100%;
+}
+.cantidad-result{
+    width:70%;
+    height: 45px;
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: right;
+    align-items:flex-end;
+    color: var(--cyan);
+    font-size: 30px;
+    font-weight:900;
+}
