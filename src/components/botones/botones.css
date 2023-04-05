@@ -6,6 +6,7 @@
     --lightGrayishCyan: hsl(185, 41%, 84%);
     --veryLightGrayishCyan: hsl(189, 41%, 97%);
     --White: hsl(0, 0%, 100%);
+    --red: rgb(228, 43, 43);
   
   }
 
@@ -55,7 +56,7 @@
 	right: 0;
 }
 
-#custom{
+.custom{
     width: 85px;
     height: 35px;
     background-color: var(--veryLightGrayishCyan);
@@ -69,7 +70,16 @@
     box-shadow: 2px 2px 1px rgba(0, 0, 0, .3);
 }
 
-.propina:hover, #custom:hover{
+.custom-error{
+    border: 2px solid var(--red);
+    outline-color: var(--red);
+    background-color: rgb(245, 138, 138);
+    color: var(--White);
+}
+
+
+
+.propina:hover, .custom:hover{
     background-color: var(--lightGrayishCyan);
     color: var(--veryDarkCyan);
     cursor: pointer;

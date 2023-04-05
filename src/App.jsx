@@ -7,17 +7,19 @@ import './App.css';
 
 
 
-//trabajar con el boton custom
-//hacer las operaciones (para  ello de debe validar que todo este llenado)
-//imprimir el resultado
-//boton reset
+//trabajar con el boton custom(validacion y funcionamiento)
+// mejorar el codigo de operacion con useefect(si se puede)
+//cambiar los iconos 
+//mejorar el funcionamiento del boton reset al desabilitarlo
 
 function App() {
   const [dinero, setDinero] = useState({cantidad: '', valido:null });
   const [personas, setPersonas] = useState({cantidad: '', valido:null })
   const [porcentaje, setPorcentaje] = useState({cantidad: '', valido:null })  
 
-  const expresion = /^[0-9]{1,9}$|^[0-9]{1,9}\.[0-9]{1,2}$/;
+  const expresionDecimal = /^[0-9]{1,9}$|^[0-9]{1,9}\.[0-9]{1,2}$/;
+  const expresionEnteros = /^[0-9]{1,3}$/;
+
 
   
   let pagoPersona = 0;
@@ -31,6 +33,7 @@ function App() {
       pagoTotal = pagoPersona + porcentTip;
     }
   }
+
 
   const resetButton = () => {
     setDinero({...dinero, cantidad:"", valido: ""});
@@ -49,18 +52,19 @@ function App() {
           icon = '$'
           estado = {dinero}
           cambiarEstado = {setDinero}
-          expresionRegular={expresion}
+          expresionRegular={expresionDecimal}
          />
          <Botones
           estado = {porcentaje}
           cambiarEstado = {setPorcentaje}
+          expresionRegular = {expresionEnteros}
          />
          <CantidadInput
           title = 'Number of People'
           icon = 'TT'
           estado = {personas}
           cambiarEstado = {setPersonas}
-          expresionRegular={expresion}
+          expresionRegular={expresionDecimal}
          />
       </div>
       <div className="body-left">
