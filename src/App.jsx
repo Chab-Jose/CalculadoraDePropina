@@ -3,14 +3,15 @@ import CantidadInput from './components/cantidadInput/cantidadInput';
 import Botones from './components/botones/botones';
 import ResultLeft from './components/resultLeft/resultLeft';
 import './App.css';
+import { FaUserAlt } from "react-icons/fa";
+import { FaDollarSign } from "react-icons/fa";
 
 
 
 
 //trabajar con el boton custom(validacion y funcionamiento)
 // mejorar el codigo de operacion con useefect(si se puede)
-//cambiar los iconos 
-//mejorar el funcionamiento del boton reset al desabilitarlo
+//mejorar la validacion de los inputs(si se puede)
 
 function App() {
   const [dinero, setDinero] = useState({cantidad: '', valido:null });
@@ -49,7 +50,7 @@ function App() {
 
         <CantidadInput
           title = 'Bill'
-          icon = '$'
+          icon = {<FaDollarSign/>}
           estado = {dinero}
           cambiarEstado = {setDinero}
           expresionRegular={expresionDecimal}
@@ -61,10 +62,10 @@ function App() {
          />
          <CantidadInput
           title = 'Number of People'
-          icon = 'TT'
+          icon = {<FaUserAlt/>}
           estado = {personas}
           cambiarEstado = {setPersonas}
-          expresionRegular={expresionDecimal}
+          expresionRegular={expresionEnteros}
          />
       </div>
       <div className="body-left">
@@ -72,7 +73,12 @@ function App() {
           pagoTip = {porcentTip.toFixed(2)}
           pagoTotal = {pagoTotal.toFixed(2)}
         />
-        <button className='boton-reset' type="submit" disabled={!dinero.cantidad} onClick={resetButton} >RESET</button>
+        <button 
+          className={`${(!dinero.cantidad)?'boton-disabled':'boton-reset'}`}  
+          type="submit" disabled={!dinero.cantidad} 
+          onClick={resetButton} >
+            RESET
+        </button>
       </div>
 
    </div>
